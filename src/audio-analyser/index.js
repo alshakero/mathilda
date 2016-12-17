@@ -128,7 +128,6 @@ class AudioAnalyzer {
 
             this.source.onended = this.onEnded;
 
-            console.log('calling poller');
             this.poller();
             this.queueSubtitles();
         }

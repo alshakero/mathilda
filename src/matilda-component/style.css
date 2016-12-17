@@ -41,13 +41,15 @@ canvas
      transform: scaleY(0);
      -webkit-animation: blink-eyes 10s infinite; 
     animation: blink-eyes 10s infinite;
+    fill: #613c35;
 }
 #right-lid
 {
     transform-origin: 50% 0%;
     transform: scaleY(0);
-     -webkit-animation: blink-eyes 10s infinite; 
+    -webkit-animation: blink-eyes 10s infinite; 
     animation: blink-eyes 10s infinite;
+    fill: #613c35;
 }
 @-webkit-keyframes blink-eyes {
   0%   { transform:scaleY(0); }

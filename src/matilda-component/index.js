@@ -26,11 +26,29 @@ class Matlida extends Component {
         });
 
         this.width = window.innerWidth;
+
         this.refs.lyricsCanvas.width = window.innerWidth;
         this.refs.lyricsCanvas.height = window.innerHeight;
 
         this.refs.effectsCanvas.width = window.innerWidth;
         this.refs.effectsCanvas.height = window.innerHeight;
+
+        window.addEventListener('resize', function () 
+        {
+            this.width = window.innerWidth;
+            comp.lyricsCanvas.width = window.innerWidth;
+            comp.lyricsCanvas.height = window.innerHeight;
+
+            comp.effectsCanvas.width = window.innerWidth;
+            comp.effectsCanvas.height = window.innerHeight;
+            comp.effectsContext.clearRect(0,0, comp.effectsCanvas.width,  comp.effectsCanvas.height);
+
+            comp.effectsContext.globalCompositeOperation = 'exclusion';
+            comp.effectsContext.fillStyle = "#5a0008";
+            comp.lyricsContext.font = Math.sqrt(window.innerWidth)  / 1.3 + "px Courgette";
+            comp.lyricsContext.globalCompositeOperation = 'lighter';
+            comp.lyricsContext.fillStyle = "#a53a00";
+        });
 
         this.lyricsCanvas = this.refs.lyricsCanvas;
         this.effectsCanvas = this.refs.effectsCanvas;

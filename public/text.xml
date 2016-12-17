@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<timedtext format="3">
+	<head>
+		<pen id="1" fc="#CCCCCC"/>
+		<pen id="2" fc="#E5E5E5"/>
+		<ws id="1" mh="2" ju="0" sd="3"/>
+		<wp id="1" ap="6" ah="20" av="95" rc="2" cc="32"/>
+	</head>
+	<body> 
+		<p t="24000"><s>He deals the cards as a meditation</s></p>
+		<p t="30000"><s>And those he plays never suspect</s></p>
+		<p t="35000"><s>He doesn't play for the money he wins</s></p>
+		<p t="40000"><s>He doesn't play for the respect</s></p>
+		<p t="47000"><s>He deals the cards to find the answer</s></p>
+		<p t="52000"><s>The sacred geometry of chance</s></p>
+		<p t="57500"><s>The hidden law of probable outcome</s></p>
+		<p t="65000"><s>The numbers lead a dance</s></p>
+		<p t="69000"><s>I know that the spades are the swords of a soldier</s></p>
+		<p t="75000"><s>I know that the clubs are weapons of war</s></p>
+		<p t="81000"><s>I know that diamonds mean money for this art</s></p>
+		<p t="86000"><s>But that's not the shape of my heart</s></p>
+		<p t="93000"><s>He may play the jack of diamonds</s></p>
+		<p t="97500"><s>He may lay the queen of spades</s></p>
+		<p t="103500"><s>He may conceal a king in his hand</s></p>
+		<p t="108500"><s>While the memory of it fades</s></p>
+		<p t="115000"><s>I know that the spades are the swords of a soldier</s></p>
+		<p t="120000"><s>I know that the clubs are weapons of war</s></p>
+		<p t="127600"><s>I know that diamonds mean money for this art</s></p>
+		<p t="131000"><s>But that's not the shape of my heart</s></p>
+		<p t="137600"><s>That's not the shape...</s></p>
+		<p t="142000"><s>the shape of my heart</s></p>
+		<p t="145500"><s>♪</s></p>
+		<p t="146000"><s>♫</s></p>
+		<p t="146500"><s>♪♫</s></p>
+		<p t="147000"><s>♪</s></p>
+		<p t="147500"><s>♪</s></p>
+		<p t="147000"><s>♫</s></p>
+		<p t="147500"><s>♪♫♪♫</s></p>
+		<p t="149000"><s>♪♪</s></p>
+		<p t="149500"><s>♫♫</s></p>
+		<p t="173500"><s>And if I told you that I loved you</s></p>
+		<p t="180000"><s>You'd maybe think there's something wrong</s></p>
+		<p t="184500"><s>I'm not a man of too many faces</s></p>
+		<p t="192500"><s>The mask I wear is one</s></p>
+		<p t="197500"><s>Those who speak know nothing</s></p>
+		<p t="202000"><s>And find out to their cost</s></p>
+		<p t="208000"><s>Like those who curse their luck</s></p>
+		<p t="210000"><s>in too many places</s></p>
+		<p t="214000"><s>And those who smile are lost</s></p>
+		<p t="218000"><s>I know that the spades are the swords of a soldier</s></p>
+		<p t="225000"><s>I know that the clubs are weapons of war</s></p>
+		<p t="230000"><s>I know that diamonds mean money for this art</s></p>
+		<p t="236000"><s>But that's not the shape of my heart</s></p>
+		<p t="239500"><s>That's not the shape of my heart</s></p>
+		<p t="259500"><s>not the shape</s></p>
+		<p t="299500"><s>of my heart</s></p>
+	 </body>
+ </timedtext>

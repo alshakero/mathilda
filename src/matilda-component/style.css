@@ -1,15 +1,71 @@
 .st0{display:none;}
 .st1{display:inline;fill:#927B63;}
 .st2{fill:#88563B;}
-.st3{fill:#FFFBFA;}
+.st3{fill:#88563B!important;}
 .st4{fill:#B5887C;}
 .st5{fill:#BAAB9E;}
-.st6{fill:#402A1F;}
+.st6{fill:#88563B;}
 svg
 {
-    height: 100vh
+    height: 100vh;
+    width: 100%;
+    opacity: 0.9;
+    position: relative;
+    z-index: 2;
 }
 #Head
 {
     transform-origin: 50% 98%;
+    transform-style: preserve-3d;
+}
+#Body
+{
+    transform-origin: 50% 50%;
+}
+
+#mouth
+{
+    transform-origin: 50% 50%;
+}
+canvas
+{
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  z-index: 1;
+}
+#left-lid
+{
+    transform-origin: 50% 0%;
+     transform: scaleY(0);
+     -webkit-animation: blink-eyes 10s infinite; 
+    animation: blink-eyes 10s infinite;
+}
+#right-lid
+{
+    transform-origin: 50% 0%;
+    transform: scaleY(0);
+     -webkit-animation: blink-eyes 10s infinite; 
+    animation: blink-eyes 10s infinite;
+}
+@-webkit-keyframes blink-eyes {
+  0%   { transform:scaleY(0); }
+  98%   { transform:scaleY(0);  }
+  100% { transform:scaleY(1);  }
+}
+@-moz-keyframes blink-eyes {
+  0%   { transform:scaleY(0); }
+  98%   { transform:scaleY(0);  }
+  100% { transform:scaleY(1);  }
+}
+@-o-keyframes blink-eyes {
+  0%   { transform:scaleY(0); }
+  98%   { transform:scaleY(0);  }
+  100% { transform:scaleY(1);  }
+}
+@keyframes blink-eyes {
+  0%   { transform:scaleY(0); }
+  98%   { transform:scaleY(0);  }
+  100% { transform:scaleY(1);  }
 }

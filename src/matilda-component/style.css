@@ -37,37 +37,35 @@ canvas
 }
 #left-lid
 {
-    transform-origin: 50% 0%;
-     transform: scaleY(0);
-     -webkit-animation: blink-eyes 10s infinite; 
-    animation: blink-eyes 10s infinite;
+    opacity: 0;
+    -webkit-animation: blink-eyes 7s infinite; 
+    animation: blink-eyes 7s infinite;
     fill: #613c35;
 }
 #right-lid
 {
-    transform-origin: 50% 0%;
-    transform: scaleY(0);
-    -webkit-animation: blink-eyes 10s infinite; 
-    animation: blink-eyes 10s infinite;
+    opacity: 0;
+    -webkit-animation: blink-eyes 7s infinite; 
+    animation: blink-eyes 7s infinite;
     fill: #613c35;
 }
 @-webkit-keyframes blink-eyes {
-  0%   { transform:scaleY(0); }
-  98%   { transform:scaleY(0);  }
-  100% { transform:scaleY(1);  }
+  0%   { opacity: 0;}
+  98%   { opacity: 0; }
+  100% { opacity: 1; }
 }
 @-moz-keyframes blink-eyes {
-  0%   { transform:scaleY(0); }
-  98%   { transform:scaleY(0);  }
-  100% { transform:scaleY(1);  }
+  0%   { opacity: 0;}
+  98%   { opacity: 0; }
+  100% { opacity: 1; }
 }
 @-o-keyframes blink-eyes {
-  0%   { transform:scaleY(0); }
-  98%   { transform:scaleY(0);  }
-  100% { transform:scaleY(1);  }
+  0%   { opacity: 0;}
+  98%   { opacity: 0; }
+  100% { opacity: 1; }
 }
 @keyframes blink-eyes {
-  0%   { transform:scaleY(0); }
-  98%   { transform:scaleY(0);  }
-  100% { transform:scaleY(1);  }
+  0%   { opacity: 0;}
+  98%   { opacity: 0; }
+  100% { opacity: 1; }
 }

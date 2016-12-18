@@ -14,11 +14,10 @@ class Matlida extends Component {
 
             comp.setState({ eyeXOffset: -xAmount * 7, eyeYOffset: -yAmount * 3, mouthScale: 1 + (0.05 * xAmount) });
         });
-        window.addEventListener('deviceorientation', function () 
-        {
+        window.addEventListener('deviceorientation', function () {
             let currentPureA = 3 * (event.gamma / 90);
             let currentPureB = 2 * (event.beta / 90);
-            
+
             let xAmount = 0.5 - currentPureA;
             let yAmount = 0.5 - currentPureB;
 
@@ -33,19 +32,18 @@ class Matlida extends Component {
         this.refs.effectsCanvas.width = window.innerWidth;
         this.refs.effectsCanvas.height = window.innerHeight;
 
-        window.addEventListener('resize', function () 
-        {
+        window.addEventListener('resize', function () {
             this.width = window.innerWidth;
             comp.lyricsCanvas.width = window.innerWidth;
             comp.lyricsCanvas.height = window.innerHeight;
 
             comp.effectsCanvas.width = window.innerWidth;
             comp.effectsCanvas.height = window.innerHeight;
-            comp.effectsContext.clearRect(0,0, comp.effectsCanvas.width,  comp.effectsCanvas.height);
+            comp.effectsContext.clearRect(0, 0, comp.effectsCanvas.width, comp.effectsCanvas.height);
 
             comp.effectsContext.globalCompositeOperation = 'exclusion';
             comp.effectsContext.fillStyle = "#5a0008";
-            comp.lyricsContext.font = Math.sqrt(window.innerWidth)  / 1.3 + "px 'Fjalla One'";
+            comp.lyricsContext.font = Math.sqrt(window.innerWidth) / 1.3 + "px 'Fjalla One'";
             comp.lyricsContext.globalCompositeOperation = 'lighter';
             comp.lyricsContext.fillStyle = "#a53a00";
         });
@@ -56,7 +54,7 @@ class Matlida extends Component {
 
 
         this.lyricsContext = this.refs.lyricsCanvas.getContext('2d');
-        this.lyricsContext.font = Math.sqrt(window.innerWidth)  / 1.3 + "px 'Fjalla One'";
+        this.lyricsContext.font = Math.sqrt(window.innerWidth) / 1.3 + "px 'Fjalla One'";
         this.lyricsContext.fillStyle = "#a53a00";
         this.currentWordPosition.x = -this.lyricsContext.measureText("He").width;
         this.lineHeight = Math.sqrt(window.innerWidth);
@@ -78,9 +76,9 @@ class Matlida extends Component {
         let onBeat = function (comp) {
             return function (val, breatingFactor, RMS) {
 
-                if(RMS > 0.2) comp.effectsContext.clearRect(0,0, comp.effectsCanvas.width,  comp.effectsCanvas.height);
+                if (RMS > 0.2) comp.effectsContext.clearRect(0, 0, comp.effectsCanvas.width, comp.effectsCanvas.height);
                 comp.effectsContext.beginPath();
-                comp.effectsContext.arc(comp.effectsCanvas.width / 2, comp.effectsCanvas.height / 2, comp.width / 4 + comp.width / 4 * RMS, 0, 2*Math.PI);
+                comp.effectsContext.arc(comp.effectsCanvas.width / 2, comp.effectsCanvas.height / 2, comp.width / 4 + comp.width / 4 * RMS, 0, 2 * Math.PI);
                 comp.effectsContext.closePath();
 
                 comp.effectsContext.fill();
@@ -90,35 +88,32 @@ class Matlida extends Component {
         } (this);
         let onWordChange = function (comp) {
             return function (sentence, time) {
-                if(time >= 145500 && time < 173501)
-                {
+                if (time >= 145500 && time < 173501) {
                     window.document.body.style.backgroundColor = comp.colors[comp.colorIndex++];
-                }            
-                sentence = sentence.toUpperCase();   
+                }
+                sentence = sentence.toUpperCase();
                 let rect = comp.lyricsContext.measureText(comp.currentText + "  " + sentence).width;
                 //comp.currentWordPosition.x = rect;
-                if (rect + 10 > comp.lyricsCanvas.width)
-                {
-                    comp.currentWordPosition.y += comp.lineHeight;   
+                if (rect + 10 > comp.lyricsCanvas.width) {
+                    comp.currentWordPosition.y += comp.lineHeight;
                     comp.currentText = "";
 
                     //page is full
-                    if(comp.currentWordPosition.y + comp.lineHeight > comp.lyricsCanvas.height)
-                    {
+                    if (comp.currentWordPosition.y + comp.lineHeight > comp.lyricsCanvas.height) {
                         comp.currentWordPosition.y = comp.lineHeight;
-                        comp.lyricsContext.clearRect(0, 0,  comp.lyricsCanvas.width,  comp.lyricsCanvas.height);
+                        comp.lyricsContext.clearRect(0, 0, comp.lyricsCanvas.width, comp.lyricsCanvas.height);
                     }
                 }
-                comp.lyricsContext.clearRect(0, comp.currentWordPosition.y,  comp.lyricsCanvas.width,  comp.lyricsCanvas.height - comp.currentWordPosition.y);                
+                comp.lyricsContext.clearRect(0, comp.currentWordPosition.y, comp.lyricsCanvas.width, comp.lyricsCanvas.height - comp.currentWordPosition.y);
                 comp.currentText += " " + sentence;
                 comp.lyricsContext.beginPath();
                 comp.lyricsContext.fillText(comp.currentText, comp.lineHeight, comp.currentWordPosition.y);
-                comp.lyricsContext.closePath();   
-                comp.currentWordPosition.x += rect.width + 2;  
-                
+                comp.lyricsContext.closePath();
+                comp.currentWordPosition.x += rect.width + 2;
+
             }
         } (this);
-        this.audioAnalyzer = new AudioAnalyzer(null, function(){},  function (comp) { return function() {comp.setState({isReady: true})} }(this), null, onBeat, onWordChange);
+        this.audioAnalyzer = new AudioAnalyzer(null, function () { }, function (comp) { return function () { comp.setState({ isReady: true }) } } (this), null, onBeat, onWordChange);
         this.audioAnalyzer.loadAudio(musicFile);
     }
     render() {
@@ -127,13 +122,13 @@ class Matlida extends Component {
                 <Paths eyeXOffset={this.state.eyeXOffset} breatingFactor={this.state.breatingFactor} mouthScale={this.state.mouthScale} headRotateAngle={this.state.headRotateAngle ? this.state.headRotateAngle : ''} eyeYOffset={this.state.eyeYOffset} />
                 <canvas id="effectsCanvas" ref='effectsCanvas' width='100%' height='100%' />
                 <canvas id="lyricsCanvas" ref='lyricsCanvas' width='100%' height='100%' />
-                 {!this.state.hideOverlay ? 
-                     <Overlay>
-                    {this.state.isReady ?
-                        <a onClick={() => {this.audioAnalyzer.playSound(); this.setState({hideOverlay: true})}}>Start Music</a>
-                        :
-                    <p>Loading</p>
-                    }
+                {!this.state.hideOverlay ?
+                    <Overlay>
+                        {this.state.isReady ?
+                            <a onClick={() => { this.audioAnalyzer.playSound(); this.setState({ hideOverlay: true }) } }>Start Music</a>
+                            :
+                            <p>Loading</p>
+                        }
                     </Overlay>
                     :
                     ""}

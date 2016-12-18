@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import './App.css';
-import Matlida from './matilda-component';
+import Mathilda from './mathilda-component';
 
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <Matlida />
+        <Mathilda />
       </div>
     );
   }

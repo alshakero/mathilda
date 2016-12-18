@@ -4,7 +4,7 @@ import AudioAnalyzer from '../audio-analyser'
 import musicFile from './shape-of-my-heart.mp3';
 import Overlay from '../overlay';
 
-class Matlida extends Component {
+class Mathilda extends Component {
     componentDidMount() {
         let comp = this;
 
@@ -137,4 +137,4 @@ class Matlida extends Component {
     }
 }
 
-export default Matlida;
+export default Mathilda;

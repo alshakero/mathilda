@@ -1,8 +1,8 @@
 {
-  "name": "matilda",
+  "name": "mathilda",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://alshakero.github.io/matilda",
+  "homepage": "https://alshakero.github.io/mathilda",
   "devDependencies": {
     "react-scripts": "0.8.4"
   },

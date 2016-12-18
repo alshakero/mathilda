@@ -26,7 +26,7 @@ class AudioAnalyzer {
                 total += ( floato * floato );
             }
             let currentRMS = Math.sqrt(total / comp.audioDataArray.length);                     
-            comp.onBeat(2 * (Math.sin(comp.angle) * currentRMS * 2), Math.sin(comp.breathingAngle), currentRMS);        
+            comp.onBeat(3 * (Math.sin(comp.angle) * currentRMS * 2), Math.sin(comp.breathingAngle), currentRMS);        
             comp.angle+=0.1;      
             if(comp.angle > Math.PI * 2) comp.angle = 0;
             
@@ -77,7 +77,7 @@ class AudioAnalyzer {
         let comp = this;
         this.timedWords.forEach(function(el, i)
         {        
-            comp.timesOuts.push(setTimeout(function() { comp.onWordChange(el.text); }, el.time));	
+            comp.timesOuts.push(setTimeout(function() { comp.onWordChange(el.text, el.time); }, el.time));	
         });
     }
     loadAudio(url) {

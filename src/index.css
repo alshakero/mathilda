@@ -1,6 +1,9 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: Courgette;
-  background: #140701
+  font-family: 'Fjalla One';
+  background-color: #140701;
+  -webkit-transition: background-color 0.5s ease-in-out;
+  -moz-transition: background-color 0.5s ease-in-out;
+  transition: background-color 0.5s ease-in-out;
 }

@@ -45,7 +45,7 @@ class Matlida extends Component {
 
             comp.effectsContext.globalCompositeOperation = 'exclusion';
             comp.effectsContext.fillStyle = "#5a0008";
-            comp.lyricsContext.font = Math.sqrt(window.innerWidth)  / 1.3 + "px Courgette";
+            comp.lyricsContext.font = Math.sqrt(window.innerWidth)  / 1.3 + "px 'Fjalla One'";
             comp.lyricsContext.globalCompositeOperation = 'lighter';
             comp.lyricsContext.fillStyle = "#a53a00";
         });
@@ -56,7 +56,7 @@ class Matlida extends Component {
 
 
         this.lyricsContext = this.refs.lyricsCanvas.getContext('2d');
-        this.lyricsContext.font = Math.sqrt(window.innerWidth)  / 1.3 + "px Courgette";
+        this.lyricsContext.font = Math.sqrt(window.innerWidth)  / 1.3 + "px 'Fjalla One'";
         this.lyricsContext.fillStyle = "#a53a00";
         this.currentWordPosition.x = -this.lyricsContext.measureText("He").width;
         this.lineHeight = Math.sqrt(window.innerWidth);
@@ -72,6 +72,8 @@ class Matlida extends Component {
         this.state = { eyeXOffset: 0, eyeYOffset: 0, breatingFactor: 1, mouthScale: 1, currentWord: 'Matlida' };
         this.currentWordPosition = { x: 0, y: 0 };
         this.currentText = "";
+        this.colorIndex = 0;
+        this.colors = ['#d52800', '#f2cfc7', '#ffbbf9', '#a9ff5c', '#ff8d73', '#d52800', '#e1ffc7', '#c9789c', '#c1e5ff', '#200804'];
 
         let onBeat = function (comp) {
             return function (val, breatingFactor, RMS) {
@@ -87,8 +89,12 @@ class Matlida extends Component {
             }
         } (this);
         let onWordChange = function (comp) {
-            return function (sentence) {
-
+            return function (sentence, time) {
+                if(time >= 145500 && time < 173501)
+                {
+                    window.document.body.style.backgroundColor = comp.colors[comp.colorIndex++];
+                }            
+                sentence = sentence.toUpperCase();   
                 let rect = comp.lyricsContext.measureText(comp.currentText + "  " + sentence).width;
                 //comp.currentWordPosition.x = rect;
                 if (rect + 10 > comp.lyricsCanvas.width)
@@ -108,10 +114,8 @@ class Matlida extends Component {
                 comp.lyricsContext.beginPath();
                 comp.lyricsContext.fillText(comp.currentText, comp.lineHeight, comp.currentWordPosition.y);
                 comp.lyricsContext.closePath();   
-
-                //);
                 comp.currentWordPosition.x += rect.width + 2;  
-
+                
             }
         } (this);
         this.audioAnalyzer = new AudioAnalyzer(null, function(){},  function (comp) { return function() {comp.setState({isReady: true})} }(this), null, onBeat, onWordChange);

@@ -52,8 +52,8 @@ render()
 		<rect x="276.6" y="329.6" className="st3" width="102.5" height="71.4"/>
 		<rect x="312.3" y="339.8" className="st4" width="45.7" height="67.9"/>
 			<ellipse transform="matrix(1.725027e-003 -1 1 1.725027e-003 111.4 540.1012)" className="st5" cx="326.2" cy="214.3" rx="113.7" ry="71.4"/>
-			<rect x="258.7" y="187.5" transform="matrix(1 1.725027e-003 -1.725027e-003 1 0.3587 -0.4891)" className="st6" width="50" height="40.4"/>
-			<rect x="355.6" y="177.6" transform="matrix(1 1.725027e-003 -1.725027e-003 1 0.3417 -0.6563)" className="st6" width="50" height="40.4"/>
+			<rect x="258.7" id='eye-eight-left' y="187.5" transform="matrix(1 1.725027e-003 -1.725027e-003 1 0.3587 -0.4891)" className="st6" width="50" height="40.4"/>
+			<rect x="355.6" id='eye-eight-right' y="177.6" transform="matrix(1 1.725027e-003 -1.725027e-003 1 0.3417 -0.6563)" className="st6" width="50" height="40.4"/>
 		<g id="layer1">
 		<path className="st3" d="M321.9,362.6c0-0.2,1.3-0.6,2.9-0.8c1.7-0.2,2.8-0.1,2.5,0.4C326.8,363,321.9,363.4,321.9,362.6z"/>
 		<path className="st3" d="M330.4,358.2c-0.6-0.4-1.1-1.1-1.1-1.7c-1.4-11-1.4-13.4,0.2-14.9c3.6-3.7,6.7,5,4.3,12.1 C332.2,358.4,331.7,359.1,330.4,358.2z"/>
